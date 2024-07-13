@@ -76,7 +76,7 @@ body {
     cursor: pointer;
 }
 
-li.active, li:hover {
+li.active, li:hover  {
     color: white;
 }
 
@@ -113,6 +113,7 @@ li.active, li:hover {
     position: relative;
     z-index: 2;
 }
+
 #content p {
     margin-left: auto;
     color: var(--pale-blue);
@@ -124,9 +125,17 @@ li.active, li:hover {
     align-items: center;
 }
 
-.title p {
-    font-size: 2rem;
-    font-weight: 500;
+svg {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+path {
+    color: #BBC0FF;
+}
+
+path:hover {
+    color: #FFFF;
 }
 
 .title h1 { 

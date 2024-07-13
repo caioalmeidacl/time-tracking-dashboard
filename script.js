@@ -8,6 +8,7 @@ function displayCards(data, period){
     const dashboard = document.querySelector("#dashboard");
     dashboard.innerHTML = "";
     for(let item of data) {
+        const svg = `<svg width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="currentColor" fill-rule="evenodd"/></svg>`;
         const card =
         ` 
         <div class="cards">
@@ -17,7 +18,7 @@ function displayCards(data, period){
             <div id="content">
                 <div class="title">
                     <h1>${item.title}</h1>
-                    <p>...</p>
+                    ${svg}
                 </div>
                 <div class="time">
                     <h1>${item.timeframes[period].current}hrs</h1>
@@ -58,10 +59,14 @@ function updatePeriod (e) {
 menu.addEventListener("click", updatePeriod);
 
 async function load(period="weekly") {
-    const data = await getData();
-    const defaultActiveMenu = document.querySelector(".menu li:nth-child(2)");
-    defaultActiveMenu.classList.toggle("active", period == "weekly");   
-    displayCards(data, period);
+    try {
+        const data = await getData();
+        const defaultActiveMenu = document.querySelector(".menu li:nth-child(2)");
+        defaultActiveMenu.classList.toggle("active", period == "weekly");   
+        displayCards(data, period);
+    }catch(e) {
+        console.log(e);
+    }
 }
 
 load();
