@@ -32,6 +32,9 @@ body {
     background-color: var(--very-dark-blue);
 }
 
+section {
+    grid-area: section;
+}
 
 .info {
     display: flex;
@@ -45,7 +48,7 @@ body {
     max-width: 75px;
     max-height: 75px;
     object-fit: cover;
-    border: 5px solid white;
+    border: 3px solid white;
     border-radius: 100%;
 }
 
@@ -73,7 +76,8 @@ body {
 
 .menu li  {
     color: var(--desaturated-blue);
-    cursor: pointer;
+    cursor: pointer; 
+    width: fit-content;
 }
 
 li.active, li:hover  {
@@ -83,12 +87,13 @@ li.active, li:hover  {
 /* cards */
 #dashboard {
     grid-area: main;   
-    height: 100%;
+    max-height: 100%;
 }
 
 .cards {
     border-radius: 15px;
     margin-bottom: 40px;
+    height: fit-content;
 }
 
 .template {
@@ -158,8 +163,125 @@ path:hover {
     font-weight: 300;
 }
 
+
+/* laptop*/
+@media (min-width:769px) {
+    body {
+        grid-template-areas: 
+            "section main";
+        grid-template-columns:  auto 0.9fr;
+        grid-template-rows: 1fr;
+        outline: auto ;
+        height: fit-content;
+        gap: 40px;
+    }
+
+    section {
+        overflow: hidden;
+    }
+
+    .profile {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .info {
+        flex-direction: column;
+        height: 65%;
+        align-items: normal;
+        padding: 0px;
+        position: relative;
+        z-index: 2;
+        padding: 50px;
+    }
+    
+    .info img { 
+        max-width: 100px;
+        max-height: 100px;
+        margin-bottom: 50px;
+    }
+    
+    .info div { 
+        margin-left: 0px;
+        outline: auto;
+        width: fit-content;
+    }
+    
+    .info h2 {
+        font-weight: 400;
+        font-size: 1.0rem;
+        color: var(--pale-blue);
+    }
+    .info h1 { 
+        font-weight: 300;
+        /* font-size: 4em; */
+        outline: auto;
+        width: fit-content;
+        height: fit-content;
+        overflow: hidden;
+    }
+
+    .menu {
+        flex-direction: column;
+        height: 35%;
+        background-color: var(--dark-blue);
+        justify-content: normal;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        margin-top: 0px;
+        padding: 0;
+    }
+    
+    #dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+    .cards {     
+        margin: 0 40px 40px 0 ;
+        width: 28vh;
+    }
+
+    #content {
+        padding: 30px;
+        margin-top: -25px;
+        border-radius: 15px;
+    }
+
+    #content p {
+        margin-left: 0;
+        font-weight: 300;
+    }
+
+    .title {
+        display: flex;
+        padding: 0 0 10px 0;
+        align-items: center;
+    }
+    
+    .time {
+        align-items: normal;
+        flex-direction: column;
+        padding-top: 20px;
+    }      
+
+    .time p {
+        font-size: 1rem;
+        font-weight: 400;
+        padding-top: 10px;
+    }
+    
+    .time h1 {
+        font-size: 3.4rem;
+        font-weight: 300;
+    }
+}
+
+
 /* mobile devices */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     body {
         grid-template-areas: 
         "section"
@@ -171,19 +293,11 @@ path:hover {
     }
     
     section {
-        grid-area: section;
         background-color: var(--dark-blue);
         border-radius: 15px;
         margin-top: 50px;
     }
+    
+  
 }
 
-/* tablets */
-@media (min-width: 601px) and (max-width: 768px) { 
-
-}
-
-/* laptop*/
-@media (min-width:769px) {
-
-}
