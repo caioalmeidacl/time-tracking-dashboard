@@ -169,24 +169,24 @@ path:hover {
     body {
         grid-template-areas: 
             "section main";
-        grid-template-columns:  auto 0.9fr;
+        grid-template-columns:  350px auto;
         grid-template-rows: 1fr;
-        outline: auto ;
-        height: fit-content;
-        gap: 40px;
+        gap: 10px;
+        place-content: center;
+        place-items: center;
     }
 
     section {
         overflow: hidden;
+        max-width: 30vw;
     }
 
     .profile {
-        height: 100%;
-        width: 100%;
+        min-width: fit-content;
+        height: 64vh;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
     }
+
     .info {
         flex-direction: column;
         height: 65%;
@@ -194,18 +194,19 @@ path:hover {
         padding: 0px;
         position: relative;
         z-index: 2;
-        padding: 50px;
+        padding: 40px;
     }
+
     
     .info img { 
         max-width: 100px;
         max-height: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
     }
     
     .info div { 
         margin-left: 0px;
-        outline: auto;
+        overflow: hidden;
         width: fit-content;
     }
     
@@ -216,38 +217,54 @@ path:hover {
     }
     .info h1 { 
         font-weight: 300;
-        /* font-size: 4em; */
-        outline: auto;
-        width: fit-content;
-        height: fit-content;
-        overflow: hidden;
+        font-size: 2.6rem;
+        width: 200px;
     }
 
     .menu {
         flex-direction: column;
-        height: 35%;
+        height: 20vh;
         background-color: var(--dark-blue);
         justify-content: normal;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        margin-top: 0px;
-        padding: 0;
+        margin-top: -15px;
+        padding: 0px 40px 0px;
+        justify-content: center;
+        overflow-y: auto;
+    }
+
+    .menu li {
+        margin: 10px 0;
     }
     
     #dashboard {
         display: flex;
         flex-wrap: wrap;
-        height: fit-content;
+        max-width: 50vw;
+        height: 64vh;
+        overflow-y: auto;
+        justify-content: space-around;
     }
-    .cards {     
-        margin: 0 40px 40px 0 ;
+    
+    ::-webkit-scrollbar {
+        background-color: var(--dark-blue);
+    }
+
+    .cards { 
+        min-width: fit-content;
         width: 28vh;
     }
 
     #content {
-        padding: 30px;
+        padding: 30px 30px 20px 30px;
         margin-top: -25px;
         border-radius: 15px;
+    }
+
+    #content:hover {
+        cursor: pointer;
+        filter: brightness(1.3);
     }
 
     #content p {
@@ -257,7 +274,7 @@ path:hover {
 
     .title {
         display: flex;
-        padding: 0 0 10px 0;
+        padding: 0;
         align-items: center;
     }
     
@@ -270,12 +287,14 @@ path:hover {
     .time p {
         font-size: 1rem;
         font-weight: 400;
-        padding-top: 10px;
+        margin-top: 10px;
+        overflow: hidden;
     }
     
     .time h1 {
         font-size: 3.4rem;
         font-weight: 300;
+        overflow: hidden;
     }
 }
 
